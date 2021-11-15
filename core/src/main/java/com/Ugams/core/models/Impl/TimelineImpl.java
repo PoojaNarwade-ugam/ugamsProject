@@ -5,13 +5,12 @@ import com.Ugams.core.models.Timeline;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
-import org.apache.sling.models.annotations.Exporter;
-import org.apache.sling.models.annotations.ExporterOption;
-import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.*;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 
 import javax.inject.Inject;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,11 +20,13 @@ import java.util.Map;
         adapters = Timeline.class,
         resourceType = TimelineImpl.RESOURCE_TYPE,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-@Exporter(name = "jackson", extensions ="json",selector = "timeline",
-        options = {
-                @ExporterOption(name = "SerializationFeature.WRAP_ROOT_VALUE", value="true"),
-        })
+@Exporters({
+        @Exporter(name = "jackson", extensions = "json", selector = "timelinjson"),
+        @Exporter(name = "timeline", extensions = "xml", selector = "timelinxml")
+})
+
 @JsonRootName("Timeline")
+@XmlRootElement(name = "Timeline")
 public class TimelineImpl implements Timeline{
 
     final protected static String RESOURCE_TYPE="ugams/components/content/timeline";
@@ -35,6 +36,7 @@ public class TimelineImpl implements Timeline{
     Resource timeline;
 
     @Override
+    @XmlElement(name = "Timeline Details for various time")
     @JsonProperty(value = "Timeline Details for various time")
     public List<Map<String, String>> getTimelineDetails() {
         List<Map<String, String>> timelineMap = new ArrayList<>();
@@ -50,5 +52,6 @@ public class TimelineImpl implements Timeline{
         return timelineMap;
     }
     @JsonProperty(value = "Sample Test")
+    @XmlElement(name = "Sample Test")
     public String Timelinesampletext(){return "sample Text for custom exporter";}
 }

@@ -4,22 +4,23 @@ import com.Ugams.core.models.HomeAbout;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
-import org.apache.sling.models.annotations.Exporter;
-import org.apache.sling.models.annotations.ExporterOption;
-import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.*;
 
 import javax.inject.Inject;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Model(adaptables = Resource.class,
         adapters = HomeAbout.class,
         resourceType = HomeAboutImpl.RESOURCE_TYPE,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-@Exporter(name = "jackson", extensions ="json",selector = "homeabout",
-        options = {
-                @ExporterOption(name = "SerializationFeature.WRAP_ROOT_VALUE", value="true"),
-        })
+@Exporters({
+        @Exporter(name = "jackson", extensions = "json", selector = "homeabout"),
+        @Exporter(name = "homeabout", extensions = "xml", selector = "homeabout")
+})
+
 @JsonRootName("Home-About")
+@XmlRootElement(name = "HomeAbout")
 public class HomeAboutImpl implements HomeAbout{
 
     final protected static String RESOURCE_TYPE="ugams/components/content/home-about";
@@ -43,21 +44,29 @@ public class HomeAboutImpl implements HomeAbout{
     String path;
 
     @Override
+    @XmlElement(name = "Title")
+    @JsonProperty(value="Title")
     public String getHomeAboutTitle() {
         return title;
     }
 
     @Override
+    @XmlElement(name = "Heading")
+    @JsonProperty(value="Heading")
     public String getHomeAboutHeading() {
         return heading;
     }
 
     @Override
+    @XmlElement(name = "Description")
+    @JsonProperty(value="Description")
     public String getHomeAboutDescription() {
         return desc;
     }
 
     @Override
+    @XmlElement(name = "ButtonTitle")
+    @JsonProperty(value="ButtonTitle")
     public String getHomeAboutButtonTitle() {
         return buttonTitle;
     }
@@ -68,10 +77,13 @@ public class HomeAboutImpl implements HomeAbout{
     }
 
     @Override
+    @XmlElement(name = "Pathvalue")
+    @JsonProperty(value="Pathvalue")
     public String getPathValue() {
         return path;
     }
 
     @JsonProperty(value = "Sample Test")
+    @XmlElement(name = "Sample Test")
     public String Homeaboutsampletext() {return "Sample Text for custom exporter";}
 }

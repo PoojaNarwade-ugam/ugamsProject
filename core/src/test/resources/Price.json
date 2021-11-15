@@ -1,0 +1,13 @@
+{
+  "price": {
+    "jcr:primaryType": "nt:unstructured",
+    "num": "01",
+    "type": "Economy",
+    "text1": "Secure Online Transfer",
+    "text2": "Unlimited Styles for interface",
+    "text3": "Reliable Customer Service",
+    "title": "For the individuals",
+    "sling:resourceType": "ugams/components/content/price"
+  }
+}
+

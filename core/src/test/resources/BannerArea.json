@@ -1,0 +1,12 @@
+{
+  "banner": {
+    "jcr:primaryType": "nt:unstructured",
+    "buttonTitle": "DISCOVER NOW",
+    "img": "/content/dam/ugams/hero-img.png",
+    "desc": "You will begin to realise why this exercise is called the Dickens Pattern with reference to the ghost showing Scrooge some different futures.",
+    "path": "/content/ugams/us/en/about",
+    "title": "THIS IS ME",
+    "heading": "PHILIP GILBERT",
+    "sling:resourceType": "ugams/components/content/banner-area"
+  }
+}

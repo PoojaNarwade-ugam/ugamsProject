@@ -1,0 +1,33 @@
+{
+  "timeline": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "text1": "Session: 2010-11",
+      "text2": "Result: 3.78 (In the Scale of 4.00)",
+      "title": "Masters in Graphics & Fine Arts"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "text1": "July 2015 to Present",
+      "title": "Creative Content Developer"
+    },
+    "item2": {
+      "jcr:primaryType": "nt:unstructured",
+      "text1": "Session: 2006-09",
+      "text2": "Result: 3.40 (In the Scale of 4.00)",
+      "title": "Bachelor in Graphics & UI/UX"
+    },
+    "item3": {
+      "jcr:primaryType": "nt:unstructured",
+      "text1": "July 2015 to Present",
+      "title": "Senior UI/UX Designer"
+    },
+    "item4": {
+      "jcr:primaryType": "nt:unstructured",
+      "text1": "Session: 2003-06",
+      "text2": "Result: 4.94 (In the Scale of 5.00)",
+      "title": "Diploma in Fine Arts & Printing"
+    }
+  }
+}
