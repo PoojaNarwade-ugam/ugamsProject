@@ -17,7 +17,10 @@ import javax.xml.bind.annotation.XmlRootElement;
         resourceType = TestimonialImpl.RESOURCE_TYPE,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporters({
-        @Exporter(name = "jackson", extensions = "json", selector = "testimonialjson"),
+        @Exporter(name = "jackson", extensions = "json", selector = "testimonialjson",
+        options = {
+        @ExporterOption(name = "SerializationFeature.WRAP_ROOT_VALUE", value="true"),
+                  }),
         @Exporter(name = "testixml", extensions = "xml", selector = "testimonialxml")
 })
 @JsonRootName("Testimonial")
