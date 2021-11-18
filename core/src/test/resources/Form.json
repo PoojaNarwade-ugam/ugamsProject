@@ -1,0 +1,17 @@
+{
+"Form":{
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Form",
+    "cq:template": "/conf/ugams/settings/wcm/templates/custom",
+    "sling:resourceType": "ugams/components/structure/page",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "/libs/wcm/foundation/components/responsivegrid",
+      "calculator": {
+        "sling:resourceType": "ugams/components/content/calculator"
+      }
+    }
+  }
+}
+}
