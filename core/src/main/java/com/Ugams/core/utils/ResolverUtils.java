@@ -14,9 +14,10 @@ public class ResolverUtils {
 
     public static ResourceResolver newResolver(ResourceResolverFactory resourceResolverFactory) throws LoginException {
 
-    final Map<String, Object> paramMap = new HashMap<String, Object>();
-    paramMap.put(ResourceResolverFactory.SUBSERVICE,UGAM_SERVICE_USER);
-    ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(paramMap);
-    return resolver;
+        final Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put(ResourceResolverFactory.SUBSERVICE,UGAM_SERVICE_USER);
+        ResourceResolver resolver = resourceResolverFactory.getServiceResourceResolver(paramMap);
+        return resolver;
+    }
 }
-}
+
