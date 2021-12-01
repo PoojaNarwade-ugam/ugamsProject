@@ -39,6 +39,7 @@ public class ServiceUserModelImpl implements ServiceUserModel {
     private QueryBuilder queryBuilder;
     String user = " ";
     final Logger LOG = LoggerFactory.getLogger(ServiceUserModelImpl.class);
+
     @Override
     public String getUsernames() {
 
